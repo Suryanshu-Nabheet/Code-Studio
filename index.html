@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.22.3/min/vs/loader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/4.15.0/xterm.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/4.15.0/xterm.min.css">
+</head>
+<body>
+    <div class="header">
+        <h1><span class="red">C</span>ODE <span class="red">S</span>TUDIO</h1>
+    </div>
+
+    <div class="editor-container">
+        <div class="sidebar">
+            <button class="icon-button settings-button">⚙️</button>
+            <button class="icon-button ai-generate-button">🤖</button>
+            <button class="icon-button upload-github">⬆️</button>
+            <button class="icon-button" id="run">▶️</button>
+            <button class="icon-button" id="toggle-terminal">💻</button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button" onclick="openTab('html')">HTML</button>
+            <button class="tab-button" onclick="openTab('css')">CSS</button>
+            <button class="tab-button" onclick="openTab('js')">JavaScript</button>
+        </div>
+
+        <div id="html-editor" class="editor"></div>
+        <div id="css-editor" class="editor" style="display: none;"></div>
+        <div id="js-editor" class="editor" style="display: none;"></div>
+
+        <div id="preview-container">
+            <iframe id="preview-frame"></iframe>
+        </div>
+    </div>
+
+    <div id="terminal" class="terminal-container"></div>
+
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <label for="font-size">Font Size</label>
+            <input type="number" id="font-size" value="16">
+            <label for="font-family">Font Family</label>
+            <select id="font-family">
+                <option value="Courier New">Courier New</option>
+                <option value="Monaco">Monaco</option>
+                <option value="Consolas">Consolas</option>
+                <!-- Add more font options here -->
+            </select>
+            <label for="theme">Theme</label>
+            <select id="theme">
+                <option value="vs-dark">Dark</option>
+                <option value="vs-light">Light</option>
+            </select>
+            <button id="apply-settings">Apply</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
